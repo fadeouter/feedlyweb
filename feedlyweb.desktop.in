@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=Feedly Web
+Name=Feedly Web
 Exec=qmlscene qml/Main.qml
 Icon=assets/logo.svg
 Terminal=false

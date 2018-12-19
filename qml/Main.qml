@@ -21,7 +21,7 @@ MainView {
         fill: parent
     }
 
-    applicationName: "feedly.gleblee"
+    applicationName: "feedlyweb.gleblee"
     anchorToKeyboard: true
     automaticOrientation: true
     property bool blockOpenExternalUrls: false

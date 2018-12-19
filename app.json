@@ -4,8 +4,10 @@
         "audio",
         "content_exchange",
         "video",
+        "keep-display-on",
         "webview",
-        "content_exchange_source"
+        "content_exchange"
+
     ],
     "policy_version": 16.04
 }
