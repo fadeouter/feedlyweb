@@ -2,7 +2,9 @@
 
 Feedly RSS reader web app for Ubuntu Touch operating system.
 
-![alt text](https://github.com/fadeouter/feedlyweb/screenshots/01.png)
+<img src="https://raw.githubusercontent.com/fadeouter/feedlyweb/master/screenshots/01.png" height="300"> <img src="https://raw.githubusercontent.com/fadeouter/feedlyweb/master/screenshots/02.png" height="300"> <img src="https://raw.githubusercontent.com/fadeouter/feedlyweb/master/screenshots/03.png" height="300"> <img src="https://raw.githubusercontent.com/fadeouter/feedlyweb/master/screenshots/04.png" height="300"> <img src="https://raw.githubusercontent.com/fadeouter/feedlyweb/master/screenshots/05.png" height="300">
+
+
 
 ## Features:
 * interface tweaked to use on mobile phones
