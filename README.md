@@ -8,7 +8,7 @@ Feedly RSS reader web app for Ubuntu Touch operating system.
 
 ## Features:
 * interface tweaked to use on mobile phones
-* external links open in a separate window with navigation close buttons
+* external links open in a separate window with nav and close buttons
 * other benefits from using web version of Feedly
 
 ## Getting started
@@ -16,7 +16,7 @@ Pin side panel before use this app in a portrait mode.
 
 ## To do
 * disable UI tweaks in desktop mode (add @ css rule) 
-* open links in external browser
+* add ability to open links in external browser
 * improve scrolling experience
 
 ## Test and build
