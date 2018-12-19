@@ -1,0 +1,11 @@
+{
+    "policy_groups": [
+        "networking",
+        "audio",
+        "content_exchange",
+        "video",
+        "webview",
+        "content_exchange_source"
+    ],
+    "policy_version": 16.04
+}

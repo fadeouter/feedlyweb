@@ -1,0 +1,37 @@
+
+if (document.getElementsByClassName('button-login')[0] != -1) {
+    document.getElementsByClassName('button-login')[0].remove();
+    console.log('Button removed');
+}
+
+
+var newButton = document.createElement('button');
+newButton.innerHTML = 'LOG IN *';
+newButton.setAttribute('onclick', "location.href='https://feedly.com/v3/auth/auth?client_id=feedly&redirect_uri=https%3A%2F%2Ffeedly.com%2Ffeedly.html&scope=https%3A%2F%2Fcloud.feedly.com%2Fsubscriptions&response_type=code&ct=feedly.desktop&landingPage=welcome&pageRef=welcome&mode=login'");
+newButton.setAttribute('class', 'button-login secondary');
+document.getElementsByClassName('search-bar-right-col')[0].appendChild(newButton);
+console.log('Button created');
+
+if (window.location.href.indexOf("https://feedly.com/i/login/") != -1) {
+    window.location.href = "https://feedly.com/i/my";
+}
+
+
+
+var cssId = 'myCss'; 
+if (!document.getElementById(cssId))
+{
+    var head  = document.getElementsByTagName('head')[0];
+    var link  = document.createElement('link');
+    link.id   = cssId;
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://geekteachers.ru/inject.css';
+    link.media = 'all';
+    head.appendChild(link);
+}
+console.log("css injected")
+
+
+
+
