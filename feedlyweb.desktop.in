@@ -1,8 +1,7 @@
 [Desktop Entry]
-Name=Feedly Web
+_Name=Feedly Web
 Exec=qmlscene qml/Main.qml
 Icon=assets/logo.svg
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-X-Ubuntu-Splash-Color=#ffffff

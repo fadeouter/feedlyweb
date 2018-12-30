@@ -30,7 +30,27 @@ Rectangle {
         }
 
         Item {
-            width: parent.width/3
+            width: parent.width/4
+            height: parent.height
+
+            Icon {
+                anchors.centerIn: parent
+                width: units.gu(2.9)
+                height: width
+                name: "stock_website"
+                color: "#000000"
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    Qt.openUrlExternally(wv.url);
+                }
+            }
+        }
+
+        Item {
+            width: parent.width/4
             height: parent.height
 
             Icon {
@@ -50,7 +70,7 @@ Rectangle {
         }
 
         Item {
-            width: parent.width/3
+            width: parent.width/4
             height: parent.height
 
             Icon {
@@ -70,7 +90,7 @@ Rectangle {
         }
 
         Item {
-            width: parent.width/3
+            width: parent.width/4
             height: parent.height
 
             Icon {

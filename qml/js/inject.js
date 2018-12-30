@@ -1,5 +1,4 @@
 function handler(event) {
-    console.log('Injecting styling fixes');
 
     var style = document.createElement('style');
     style.type = 'text/css';
@@ -8,8 +7,7 @@ function handler(event) {
     ));
 
     document.head.appendChild(style);
+
 }
 
 window.addEventListener('load', handler, false);
-
-

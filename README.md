@@ -12,9 +12,12 @@ Feedly RSS reader web app for Ubuntu Touch operating system.
 * other benefits from using web version of Feedly
 
 ## Changelog
+v1.2 31 Dec 2018
+* added open in external browser button for external views
+* fixed problems with empty screen on start
+
 v1.1 30 Dec 2018
 * mobile interface only in portrait mode and regular desktop in landscape mode
-* automatic re-check internet connection on start and prevent empty screen 
 * fixed sans-serif and serif font families 
 
 v1.0 19 Dec 2018
@@ -24,9 +27,10 @@ v1.0 19 Dec 2018
 Pin side panel before use this app in a portrait mode.
 
 ## To do
-* disable UI tweaks in desktop mode (add @ css rule) 
-* add ability to open links in external browser
+* <s>disable UI tweaks in desktop mode (add @ css rule)</s>
+* <s>add ability to open links in external browser</s>
 * improve scrolling experience
+* add internal adblocker
 
 ## Test and build
 Use `clickable` to test and build app.

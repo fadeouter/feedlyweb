@@ -13,7 +13,6 @@ MainView {
     id: root
     objectName: "mainView"
     ScreenSaver { screenSaverEnabled: false }
-    theme.name: "Ubuntu.Components.Themes.Ambiance"
 
     focus: true
 
@@ -31,12 +30,14 @@ MainView {
 
     Page {
         id: page
+
         header: Rectangle {
             color: "#000000"
             width: parent.width
-            height: units.dp(.5)
+            height: units.gu(.5)
             z: 1
         }
+
         anchors {
             fill: parent
             bottom: parent.bottom
@@ -66,7 +67,7 @@ MainView {
                 bottomMargin: units.gu(0)
             }
                 zoomFactor: 2.8
-                url: "load.html"
+                url: "https://feedly.com/i/my"
 
                 userScripts: [
                     WebEngineScript {
@@ -76,6 +77,16 @@ MainView {
                        runOnSubframes: true
            }
         ]
+
+        onLoadingChanged: function(loadRequest) {
+                if (loadRequest.errorCode) {
+                    webview.reload();
+                    console.log('Error ' + loadRequest.errorCode + ' | ' + loadRequest.status + ' | ' + loadRequest.errorString + ' | ' + loadRequest.errorDomain + ' | ' + loadRequest.url);  
+
+                } else {
+                    console.log('OK ' + loadRequest.errorCode + ' | ' + loadRequest.status + ' | ' + loadRequest.errorString + ' | ' + loadRequest.errorDomain + ' | ' + loadRequest.url); return; 
+                }
+            }
 
         onNewViewRequested: function(request) {
             var newWindow = Qt.createQmlObject('
