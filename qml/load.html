@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            display: flex;
+            align-items: flex-end;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        div {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 5vh;
+            animation-duration: 3s;
+            animation-name: showmessage;
+        }
+
+        @keyframes showmessage {
+            from {
+                visibility: hidden;
+            }
+
+            99% {
+                visibility: hidden;
+            }
+
+            to {
+                visibility: visible;
+            }
+        }
+
+        a {
+            display: block;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            height: 15vw;
+            width: 15vw;
+            max-width: 70px;
+            max-height: 70px;
+            background: url('view-refresh-symbolic.svg');
+            background-size: 90%;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 2px 0px rgba(0, 0, 0, 0.15);
+            margin: 1em 0;
+        }
+
+        a:active {
+            box-shadow: 0 1px 0px rgba(0, 0, 0, 0.15);
+            background-color: #2bb24d54;
+        }
+
+        p {
+            padding: 1em;
+            min-width: 300px;
+            max-width: 90vw;
+            font-family: Ubuntu, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="show">
+        <a onclick="connect();"></a>
+        <p>Internet conection is down. Trying to reconnect...</p>
+    </div>
+
+    <script async defer>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function connect() {
+            var o = navigator.onLine;
+            if (o) {
+                window.location.href = "https://feedly.com/i/my";
+            }
+        }
+
+        async function check() {
+            for (i = 0; i < 1000; i++) {
+                if (i > 7) {
+                    connect();
+                    await sleep(1000);
+                } else {
+                    connect();
+                    await sleep(500);
+                }
+            }
+        }
+
+        check();
+    </script>
+</body>
+
+</html>

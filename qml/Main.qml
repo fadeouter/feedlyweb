@@ -22,10 +22,10 @@ MainView {
     }
 
     applicationName: "feedlyweb.gleblee"
-    anchorToKeyboard: true
+    anchorToKeyboard: false
     automaticOrientation: true
     property bool blockOpenExternalUrls: false
-    property bool runningLocalApplication: false
+    property bool runningLocalApplication: true
     property bool openExternalUrlInOverlay: true
     property bool popupBlockerEnabled: false
 
@@ -66,7 +66,7 @@ MainView {
                 bottomMargin: units.gu(0)
             }
                 zoomFactor: 2.8
-                url: "https://feedly.com/i/my"
+                url: "load.html"
 
                 userScripts: [
                     WebEngineScript {

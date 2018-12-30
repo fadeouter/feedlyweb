@@ -11,6 +11,15 @@ Feedly RSS reader web app for Ubuntu Touch operating system.
 * external links open in a separate window with nav and close buttons
 * other benefits from using web version of Feedly
 
+## Changelog
+v1.1 30 Dec 2018
+* mobile interface only in portrait mode and regular desktop in landscape mode
+* automatic re-check internet connection on start and prevent empty screen 
+* fixed sans-serif and serif font families 
+
+v1.0 19 Dec 2018
+* initial release
+
 ## Getting started
 Pin side panel before use this app in a portrait mode.
 
