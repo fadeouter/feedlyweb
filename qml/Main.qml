@@ -34,7 +34,7 @@ MainView {
         header: Rectangle {
             color: "#000000"
             width: parent.width
-            height: units.gu(.5)
+            height: units.dp(.5)
             z: 1
         }
 
