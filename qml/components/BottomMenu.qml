@@ -44,7 +44,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    Qt.openUrlExternally(wv.url);
+                    Qt.openUrlExternally(newWindowWebWiew.url);
                 }
             }
         }
@@ -64,7 +64,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    wv.goBack()
+                    newWindowWebWiew.goBack()
                 }
             }
         }
@@ -84,7 +84,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    wv.goForward()
+                    newWindowWebWiew.goForward()
                 }
             }
         }
@@ -103,7 +103,7 @@ Rectangle {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: browser.close();
+                onClicked: newWindowBrowser.close();
             }
         }
     }

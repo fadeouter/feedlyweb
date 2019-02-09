@@ -29,12 +29,12 @@ MainView {
     property bool popupBlockerEnabled: false
 
     Page {
-        id: page
+        id: feedlyApp
 
         header: Rectangle {
-            color: "#000000"
+            color: "#ffffff"
             width: parent.width
-            height: units.dp(.5)
+            height: units.dp(.1)
             z: 1
         }
 
@@ -44,18 +44,15 @@ MainView {
         }
 
         WebEngineView {
-            id: webview
+            id: feedlyAppWebView
 
             WebEngineProfile {
-            id: webContext
+            id: feedlyAppWebContext
+            property alias userAgent: feedlyAppWebContext.httpUserAgent
+            userAgent: "Mozilla/5.0 (Linux; U; Android 4.1.1; en-us; AVA-V470 Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
 
-            property alias userAgent: webContext.httpUserAgent
-            property alias dataPath: webContext.persistentStoragePath
-
+            property alias dataPath: feedlyAppWebContext.persistentStoragePath
             dataPath: dataLocation
-
-            userAgent: "Mozilla/5.0 (Linux; U; Android 4.1.1; es-; AVA-V470 Build/GRK39F) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
-
             persistentCookiesPolicy: WebEngineProfile.ForcePersistentCookies
             }
 
@@ -71,20 +68,25 @@ MainView {
 
                 userScripts: [
                     WebEngineScript {
-                    injectionPoint: WebEngineScript.DocumentReady
-                       name: "oxide://inject/"
-                       sourceUrl: Qt.resolvedUrl("js/inject.js")
-                       runOnSubframes: true
-           }
-        ]
+                        injectionPoint: WebEngineScript.DocumentCreation
+                        name: "oxide://inject/"
+                        sourceUrl: Qt.resolvedUrl("js/yett.min.js")
+                         },
+                    WebEngineScript {
+                        injectionPoint: WebEngineScript.DocumentReady
+                        name: "oxide://inject/"
+                        sourceUrl: Qt.resolvedUrl("js/inject.js")
+                        runOnSubframes: false
+                    }
+                ]
 
         onLoadingChanged: function(loadRequest) {
                 if (loadRequest.errorCode) {
-                    webview.reload();
-                    console.log('Error ' + loadRequest.errorCode + ' | ' + loadRequest.status + ' | ' + loadRequest.errorString + ' | ' + loadRequest.errorDomain + ' | ' + loadRequest.url);  
+                    feedlyAppWebView.reload();
+                    console.log('Error ErrCode_' + loadRequest.errorCode + ' Status_' + loadRequest.status + ' ErrString_' + loadRequest.errorString + ' ErrDomain_' + loadRequest.errorDomain + ' Url_' + loadRequest.url);  
 
                 } else {
-                    console.log('OK ' + loadRequest.errorCode + ' | ' + loadRequest.status + ' | ' + loadRequest.errorString + ' | ' + loadRequest.errorDomain + ' | ' + loadRequest.url); return; 
+                    console.log('OK ErrCode_' + loadRequest.errorCode + ' Status_' + loadRequest.status + ' ErrString_' + loadRequest.errorString + ' ErrDomain_' + loadRequest.errorDomain + ' Url_' + loadRequest.url); return; 
                 }
             }
 
@@ -103,16 +105,27 @@ MainView {
                 import "components"
                 import "."
                     Window {
-                    id: browser;
+                    id: newWindowBrowser;
                     visible: true;
-                    property alias wv: wv
-
-                    ScreenSaver { screenSaverEnabled: false } 
+                    property alias newWindowWebWiew: newWindowWebWiew
 
                     WebEngineView {
-                        id: wv;
+                        id: newWindowWebWiew;
                         anchors.fill: parent;
                         zoomFactor: 2.8
+
+                        WebEngineProfile {
+                            httpUserAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1"
+                        }
+
+                        userScripts: [
+                            WebEngineScript {
+                                injectionPoint: WebEngineScript.DocumentCreation
+                                name: "oxide://inject/"
+                                sourceUrl: Qt.resolvedUrl("js/yett.min.js")
+                                }
+                        ]
+
 
                         anchors {
                             fill: parent
@@ -127,8 +140,8 @@ MainView {
                             id: bottomMenu
                             width: parent.width
                         }
-                    }', webview);
-        request.openIn(newWindow.wv);
+                    }', feedlyAppWebView);
+        request.openIn(newWindow.newWindowWebWiew);
             }
        }
    }
