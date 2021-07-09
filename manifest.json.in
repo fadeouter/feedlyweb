@@ -11,5 +11,5 @@
     },
     "version": "1.4.9",
     "maintainer": "Gleb Lee <ubports@gleb.li>",
-    "framework" : "ubuntu-sdk-16.04"
+    "framework" : "ubuntu-sdk-16.04.3"
 }
